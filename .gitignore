@@ -1,0 +1,22 @@
+# 依赖
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# 构建产物
+frontend/dist/
+frontend/vite.config.js
+frontend/vite.config.d.ts
+frontend/*.tsbuildinfo
+
+# 数据
+data/
+*.db
+*.sqlite*
+
+# 日志与缓存
+*.log
+.DS_Store
+
+server.log

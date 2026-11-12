@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    container_name: minishop-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./backend/seed_media:/app/seed_media
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:////app/data/minishop.db
+      - SEED_MEDIA_DIR=/app/seed_media
+
+  frontend:
+    build: ./frontend
+    container_name: minishop-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
